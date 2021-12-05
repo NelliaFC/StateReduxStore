@@ -7,9 +7,8 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function ProductList({ currentCategory }) {
+function ProductList() {
 
- 
     const dispatch = useDispatch();
   const state = useSelector((state) => state);
   const { currentCategory } = state;
@@ -44,7 +43,7 @@ function ProductList({ currentCategory }) {
   return (
     <div className="my-2">
       <h2>Our Products:</h2>
-      {products.length ? (
+      {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
             <ProductItem
